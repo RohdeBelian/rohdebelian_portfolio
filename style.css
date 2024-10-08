@@ -1,0 +1,364 @@
+/* Alapbeállítások */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    color: #333;
+    background: linear-gradient(-45deg, #8d24b4, #3D52A0, #7091E6, #8697C4);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    background-attachment: scroll; /* A háttér a görgetés során elmozdul */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* A header elem stílusai */
+header {
+    background-color: rgba(61, 82, 160, 0.8); /* Átlátszó háttér szín */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigációs lista stílusai */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #7091E6;
+}
+
+/* Szövegdobozok */
+.section {
+    margin: 40px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fehér háttér a dobozoknak */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Címek stílusai */
+h1, h2, h3 {
+    color: #2b3a72;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Portfólió elem */
+.portfolio-item {
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+ul li {
+    font-size: 18px;
+    color: #555;
+}
+
+/* API szekcióhoz stílusok */
+#random-user {
+    text-align: center;
+}
+
+#random-user img {
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+/* Kapcsolati szekció */
+#kapcsolat {
+    text-align: center;
+}
+
+#kapcsolat p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Reszponzív stílusok */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .section {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+
+/* Bemutatkozás szekció */
+#bemutatkozas .content-container {
+    display: flex;
+    justify-content: space-between; /* A szöveg és a kép között teret hagy */
+    align-items: center; /* Képet és szöveget középre igazít */
+    flex-wrap: wrap; /* Mobilon tördelje le a szöveget és a képet egymás alá */
+}
+
+#bemutatkozas .text {
+    flex: 1; /* A szöveg kitölti a maradék helyet */
+    margin-right: 20px; /* Térköz a kép és a szöveg között */
+}
+
+#bemutatkozas .profile-picture {
+    flex: 0 0 200px; /* A profilkép szélessége legyen 200px */
+    text-align: right;
+    
+}
+
+#bemutatkozas .profile-picture img {
+    width: 100%; /* A kép kitölti a szülő konténer teljes szélességét */
+    height: auto; /* A kép magassága automatikus */
+}
+
+/* Reszponzív stílusok mobilra */
+@media (max-width: 768px) {
+    #bemutatkozas .content-container {
+        flex-direction: column; /* Mobilon egymás alá kerül a szöveg és a kép */
+        text-align: center;
+    }
+
+    #bemutatkozas .text {
+        margin-right: 0;
+    }
+
+    #bemutatkozas .profile-picture {
+        margin-top: 20px;
+        text-align: center;
+        flex: 0 0 auto; /* Make the container auto width */
+        /* Remove margin-left: 60px; */
+    }
+
+    #bemutatkozas .profile-picture img {
+        width: 150px; /* Adjust to a suitable size */
+        max-width: 100%;
+        /* Remove margin-left: 60px; */
+        text-align: center;
+    }
+}
+
+/* Alapstílusok a képekhez és a galériahoz */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Középre igazítja a képeket */
+    gap: 20px; /* Távolság a képek között */
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Képek sarkainak lekerekítése */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék a képek köré */
+    max-width: 300px; /* Képek maximális szélessége nagy képernyőkön */
+    transition: transform 0.3s ease; /* Finom animáció hover esetén */
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Kicsit felnagyítja a képet hover esetén */
+}
+
+/* Mobilra optimalizálás */
+@media (max-width: 600px) {
+    .gallery {
+        flex-direction: column; /* Egymás alá rendezi a képeket kisebb képernyőkön */
+        align-items: center; /* Középre igazítja a képeket */
+    }
+    
+    .gallery img {
+        max-width: 90%; /* Mobilon szélesebbek lesznek a képek */
+    }
+}
+
+/* Tabletre optimalizálás */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .gallery {
+        justify-content: space-between; /* Jobban elosztja a képeket tableten */
+    }
+    
+    .gallery img {
+        max-width: 45%; /* Két képet jelenít meg egymás mellett */
+    }
+}
+
+/* Nagy képernyőkre */
+@media (min-width: 1025px) {
+    .gallery img {
+        max-width: 22%; /* Négy képet jelenít meg egymás mellett */
+    }
+}
+
+html {
+    scroll-behavior: smooth; /* Simább görgetés */
+}
+
+/* A galéria kialakítása a szövegrészlet alá */
+#modern-gallery-container {
+    margin-top: 40px; /* Térköz a szövegrészlet és a galéria között */
+    padding: 40px 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Finom háttérszín a képek mögött */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* A képek középre igazítása */
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+#modern-gallery-container:hover {
+    transform: translateY(-10px); /* Finom lebegő hatás */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modern-gallery-item {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.modern-gallery-item:hover img {
+    transform: scale(1.1); /* Finom nagyítás hover esetén */
+}
+
+.modern-gallery-item:hover {
+    transform: scale(1.05); /* Enyhe felnagyítás az egész doboznak */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modern-gallery-item:after {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fekete overlay a képeken */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.modern-gallery-item:hover:after {
+    opacity: 1; /* Megjelenik a fekete overlay hover esetén */
+}
+
+.modern-gallery-item h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Árnyék a szöveg alatt */
+    z-index: 2;
+}
+/* A testreszabott scrollbar általános beállítása */
+::-webkit-scrollbar {
+    width: 12px; /* A scrollbar szélessége */
+    background-color: #fff; /* A scrollbar háttérszíne fehér */
+}
+
+/* A scroll thumb (fogó rész) stílusai */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #7091E6, #3D52A0); /* Színátmenetes scrollbar */
+    border-radius: 6px; /* Lekerekített scrollbar */
+    border: 3px solid #fff; /* Fehér szegély, hogy különváljon a scroll */
+}
+
+/* A scroll thumb hover állapotban */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3D52A0, #7091E6); /* Az irány megfordul hover esetén */
+}
+
+/* A scrollbar track (háttér) */
+::-webkit-scrollbar-track {
+    background-color: #fff; /* Fehér háttér */
+    border-radius: 6px;
+}
